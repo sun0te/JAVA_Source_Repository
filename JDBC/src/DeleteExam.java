@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class SelectExam {
+public class DeleteExam {
 
 	public static void main(String[] args) {
 		String driver = "com.mysql.cj.jdbc.Driver";
@@ -16,27 +16,22 @@ public class SelectExam {
 		Statement stmt  = null;
 		ResultSet rs = null;
 		
-		String sql = "Select * from usertbl";
+		String user_id, user_addr = null, user_mobile2;
 		
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("테이블 값 삭제");
+			System.out.print("삭제할 아이디 입력 : ");
+			user_id = br.readLine();
+			String sql = "Delete From usertbl Where userID '" + user_id + "'";
+			System.out.println(sql);
+			
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, id, pw);
 			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
-			System.out.println("userID\t name\t brithYear\t addr\t mobile1\t mobile2\t height\t mDate");
-			System.out.println("-----------------------------------------------------------------------------------------------------");
-		
-			while(rs.next()) {
-				System.out.print(rs.getString("userID") + "\t ");
-				System.out.print(rs.getString("name") + "\t ");
-				System.out.print(rs.getInt("birthYear") + "\t\t ");
-				System.out.print(rs.getString("addr") + "\t ");
-				System.out.print(rs.getString("mobile1") + "\t\t ");
-				System.out.print(rs.getString("mobile2") + "\t ");
-				System.out.print(rs.getInt("height") + "\t ");
-				System.out.println(rs.getString("mDate") + "\t");
-			}
+			stmt.executeUpdate(sql);
+			System.out.println("데이터베이스 삭제 성공 !");
+			
 		}
 		catch (Exception e) {
 			System.out.println("데이터베이스 연결 실패 !");
@@ -44,7 +39,6 @@ public class SelectExam {
 		}
 		finally {
 			try {
-				if(rs != null) rs.close();
 				if(stmt != null) stmt.close();
 				if(con != null) con.close();
 			}
@@ -52,8 +46,5 @@ public class SelectExam {
 				System.out.println(e.getMessage());
 			}
 		}
-		
-		
 	}
-
 }
