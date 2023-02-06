@@ -59,7 +59,9 @@ class LinkedList{
 		}
 		else{// ["수" | 200]
 			ListNode temp = head;	//temp [100] -> 100 [월|null]
-			while(temp.link != null) temp = temp.link;	//100[월 | 200]-> [수 | null]
+			while(temp.link != null) 
+				temp = temp.link;	//100[월 | 200]-> [수 | null]
+			
 			temp.link = newNode;
 		}
 	}
