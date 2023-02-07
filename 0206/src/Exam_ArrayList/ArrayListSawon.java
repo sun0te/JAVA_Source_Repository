@@ -2,7 +2,6 @@ package Exam_ArrayList;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//실습 답안
 public class ArrayListSawon {
 	public static void main(String[] args) {
 		ArrayList<Sawon> list = new ArrayList<Sawon>();
@@ -80,7 +79,7 @@ public class ArrayListSawon {
 		
 		System.out.println("\t      *** 사원정보 ***");
 		System.out.println("============================================");
-		System.out.println("사원번호       부서명         이름         성별                이메일");
+		System.out.println("사원번호  부서명         이름         성별                이메일");
 		System.out.println("============================================");
 		for (Sawon dat : list) {
 			dat.outputData();
@@ -98,7 +97,7 @@ public class ArrayListSawon {
 		
 		for (Sawon dat : list) {
 			if (sabun.equals(dat.sabun)) {
-				System.out.println("\n사원번호       부서명         이름         성별                이메일");
+				System.out.println("\n사원번호  부서명  이름  성별  이메일");
 				System.out.println("============================================");
 				dat.outputData();
 				System.out.println("============================================\n");

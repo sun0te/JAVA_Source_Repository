@@ -3,8 +3,7 @@ package Exam_ArrayList;
 import java.util.Scanner;
 
 public class Sawon {
-	
-	
+
 	String sabun; 
 	String deptname;
 	String irum;
@@ -30,12 +29,8 @@ public class Sawon {
 	}
 	
 	void outputData() {
-		System.out.printf("%3d, %3s, %3s, %2s, %30s \n"
-		  		, sabun + "\t" 
-				  + deptname + "\t   " 
-				  + irum + "\t" 
-				  + gender + "\t"
-				  + email + "\t");
+		System.out.printf("%5s %6s %9s %9s %20s \n", 
+				sabun,deptname,irum,gender,email);
 	}
 
 }
