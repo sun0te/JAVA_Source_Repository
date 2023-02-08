@@ -29,13 +29,13 @@ public class ArrayListSawon {
 					output_sawon(list);
 					break;
 				case 3:
-//					search_sawon(list);
+					search_sawon(list);
 					break;
 				case 4:
-//					update_sawon(list);
+					update_sawon(list);
 					break;
 				case 5:
-//					delete_sawon(list);
+					delete_sawon(list);
 					break;
 				default: 
 				
