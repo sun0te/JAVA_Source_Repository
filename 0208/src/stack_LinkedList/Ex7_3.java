@@ -30,13 +30,12 @@ class StackNode {
 class LinkedStack implements Stack{
 	private StackNode top; //스텍 포인터
 	
+	public LinkedStack() {
+	}
+	
 	//오버라이딩
 	public boolean isEmpty(){ //빈 스텍인지 check
 		return (top == null);
-	}
-	
-	public LinkedStack() {
-		
 	}
 	
 	public void push(int item){	//데이터 삽입
@@ -143,8 +142,9 @@ public String infix_to_postfix(String infix) {
 			④ 오른쪽괄호를 만나면 스택을 pop하여 출력한다.
 			⑤ 수식이 끝나면, 스택이 공백이 될 때까지 pop하여 출력한다.
 		*/
-		LinkedStack S = new LinkedStack();
+		char testCh;		
 		StringBuilder postfix = new StringBuilder();
+		LinkedStack S = new LinkedStack();
 		
 		for(int i = 0; i < infix.length(); i++) {
 			testCh = this.exp.charAt(i);
@@ -194,6 +194,7 @@ public String infix_to_postfix(String infix) {
 		StringBuilder val = new StringBuilder();
 		exp = postfix;
 		int opr1, opr2, value;
+		char testCh;
 		
 		for(int i = 0; i < postfix.length(); i++) {
 			testCh = exp.charAt(i);
@@ -228,23 +229,20 @@ public String infix_to_postfix(String infix) {
 }
 
 public class Ex7_3 {
-		static Scanner sc = new Scanner(System.in);
-	public static void main(String[] args) {
+	static Scanner in = new Scanner(System.in);
+	public static void main(String args[]){
 		OptExp opt = new OptExp();
-		String postfix = null;
 		String exp = null;
+		String postfix = null;
 		
-		System.out.print("괄호가 포함된 수식을 입력하세요 => ");
-		exp = sc.next();
-		
-//		String exp = "((3*5)-(6-2))";
-		System.out.println(exp);
-		
+		//(((100*2)+(100-99))-200), ((100*1)-90)
+		System.out.print("수식 입력[ex:((3*5)-(6/2))] => ");
+		exp = in.next();
 		if(opt.testPair(exp))
-			System.out.println("괄호 맞음");
+			System.out.println("\n괄호 맞음!");
 		else {
-			System.out.println("괄호 틀림!!");
-			return; //실행 종료
+			System.out.println("괄호 틀림!!!");		
+			return;
 		}
 		
 		System.out.printf("\n후위 표기식 : ");
