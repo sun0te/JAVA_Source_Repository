@@ -34,7 +34,7 @@ public class Ex_BuubleSort {
 		for(int i = 0;i < a.length; i++) 
 			System.out.print(a[i]+ " ");
 		System.out.println();
-		System.out.print("\n 정렬된 원소");
+		System.out.print("\n정렬된 원소");
 		S.bubbleSort(a);
 	}
 

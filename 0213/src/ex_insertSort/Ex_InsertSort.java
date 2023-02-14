@@ -8,7 +8,7 @@ class Sort {
 		for(int i = 1; i < size; i++) {
 			temp = a[i];
 			//a[j-1]>temp 내림차순할 때에는 부등호 방향만 바꾸기
-			for(j = 1; j>0 && (a[j-1]>temp); j--) {	//기존 배열의 내용을 계속 탐색중일 때
+			for(j = i; j>0 && (a[j-1]>temp); j--) {	//기존 배열의 내용을 계속 탐색중일 때
 				a[j] = a[j-1];
 			}
 			a[j] = temp;//j가 0이거나 a[j-1] <= tmep (temp가 저장될 위치 확정)일 때 실행
